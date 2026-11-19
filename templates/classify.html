@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classify Complaint | ComplaintIQ</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i data-lucide="landmark"></i>
+            </div>
+
+            <div class="brand-text">
+                <h2>ComplaintIQ</h2>
+                <span>Consumer Insights</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="navigation">
+                <a href="/" class="nav-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/classify" class="nav-link active">
+                    <i data-lucide="file-search"></i>
+                    <span>Classify Complaint</span>
+                </a>
+
+                <a href="/performance" class="nav-link">
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Model Performance</span>
+                </a>
+
+                <a href="/about" class="nav-link">
+                    <i data-lucide="info"></i>
+                    <span>About Project</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-note">
+                <div class="note-icon">
+                    <i data-lucide="brain"></i>
+                </div>
+
+                <h4>Powered by NLP</h4>
+                <p>
+                    Intelligent complaint classification using
+                    natural language processing.
+                </p>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                <span>Classification system ready</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle"
+                    type="button" aria-label="Toggle navigation">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <i data-lucide="chevron-right"></i>
+                <strong>Classify Complaint</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="theme-toggle" id="themeToggle"
+                        type="button" aria-label="Switch theme" title="Switch theme">
+                    <i data-lucide="moon"></i>
+                    <span>Dark mode</span>
+                </button>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">CI</div>
+                    <div class="profile-info">
+                        <strong>ComplaintIQ</strong>
+                        <span>ML Classification</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="dashboard-content">
+
+            <div class="page-intro">
+                <p class="eyebrow">COMPLAINT ANALYSIS</p>
+                <h1>Classify a <span>Complaint.</span></h1>
+                <p>
+                    Enter a consumer financial complaint to identify
+                    its product category.
+                </p>
+            </div>
+
+            <div class="classification-layout">
+
+                <section class="content-card complaint-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">INPUT</p>
+                            <h2>Complaint Details</h2>
+                        </div>
+
+                        <div class="heading-icon">
+                            <i data-lucide="file-edit"></i>
+                        </div>
+                    </div>
+
+                    <form id="complaintForm">
+
+                        <label for="complaintText">
+                            Consumer complaint narrative
+                        </label>
+
+                        <textarea
+                            id="complaintText"
+                            name="complaint"
+                            placeholder="Describe your financial complaint here. For example: I noticed an unauthorized transaction on my credit card..."
+                            required
+                        ></textarea>
+
+                        <div class="input-footer">
+                            <span id="characterCount">0 characters</span>
+                            <span>Enter a detailed complaint for better context</span>
+                        </div>
+
+                        <div class="form-actions">
+
+                            <button type="button"
+                                    class="secondary-button"
+                                    id="clearButton">
+                                <i data-lucide="rotate-ccw"></i>
+                                Clear
+                            </button>
+
+                            <button type="submit"
+                                    class="primary-button"
+                                    id="predictButton">
+                                <i data-lucide="scan-search"></i>
+                                Predict Category
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                    <div class="loading-message" id="loadingMessage" hidden>
+                        <span class="loader"></span>
+                        Analyzing complaint...
+                    </div>
+
+                    <div class="error-message" id="errorMessage" hidden></div>
+
+                </section>
+
+                <section class="content-card result-card" id="resultCard">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">PREDICTION OUTPUT</p>
+                            <h2>Classification Result</h2>
+                        </div>
+
+                        <div class="heading-icon">
+                            <i data-lucide="clipboard-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="empty-result" id="emptyResult">
+                        <div class="empty-result-icon">
+                            <i data-lucide="message-square-text"></i>
+                        </div>
+
+                        <h3>Awaiting Complaint</h3>
+
+                        <p>
+                            Your predicted product category will
+                            appear here after analysis.
+                        </p>
+                    </div>
+
+                    <div class="prediction-result"
+                         id="predictionResult" hidden>
+
+                        <span class="result-label">
+                            PREDICTED PRODUCT CATEGORY
+                        </span>
+
+                        <div class="prediction-icon">
+                            <i data-lucide="badge-check"></i>
+                        </div>
+
+                        <h3 id="predictedCategory"></h3>
+
+                        <div class="result-divider"></div>
+
+                        <div class="processed-section">
+                            <span>PROCESSED TEXT</span>
+                            <p id="processedText"></p>
+                        </div>
+
+                        <div class="result-footer">
+                            <i data-lucide="check-circle"></i>
+                            Prediction completed successfully
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+            <section class="content-card instructions-card">
+
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">GUIDELINES</p>
+                        <h2>How to use the classifier</h2>
+                    </div>
+                </div>
+
+                <div class="guideline-grid">
+
+                    <div>
+                        <span>01</span>
+                        <h4>Describe the issue</h4>
+                        <p>
+                            Provide a clear description of the
+                            financial problem.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span>02</span>
+                        <h4>Submit complaint</h4>
+                        <p>
+                            Click Predict Category to process
+                            the complaint.
+                        </p>
+                    </div>
+
+                    <div>
+                        <span>03</span>
+                        <h4>View prediction</h4>
+                        <p>
+                            Review the predicted financial
+                            product category.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/classify.js') }}"></script>
+
+</body>
+</html>

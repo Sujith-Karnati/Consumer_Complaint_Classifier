@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Project | ComplaintIQ</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i data-lucide="landmark"></i>
+            </div>
+
+            <div class="brand-text">
+                <h2>ComplaintIQ</h2>
+                <span>Consumer Insights</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="navigation">
+                <a href="/" class="nav-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/classify" class="nav-link">
+                    <i data-lucide="file-search"></i>
+                    <span>Classify Complaint</span>
+                </a>
+
+                <a href="/performance" class="nav-link">
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Model Performance</span>
+                </a>
+
+                <a href="/about" class="nav-link active">
+                    <i data-lucide="info"></i>
+                    <span>About Project</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-note">
+                <div class="note-icon">
+                    <i data-lucide="brain"></i>
+                </div>
+
+                <h4>Powered by NLP</h4>
+
+                <p>
+                    Intelligent complaint classification using
+                    natural language processing.
+                </p>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                <span>Classification system ready</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle"
+                    type="button" aria-label="Toggle navigation">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <i data-lucide="chevron-right"></i>
+                <strong>About Project</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="theme-toggle" id="themeToggle"
+                        type="button" aria-label="Switch theme" title="Switch theme">
+                    <i data-lucide="moon"></i>
+                    <span>Dark mode</span>
+                </button>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">CI</div>
+                    <div class="profile-info">
+                        <strong>ComplaintIQ</strong>
+                        <span>ML Classification</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="dashboard-content">
+
+            <div class="page-intro">
+                <p class="eyebrow">PROJECT INFORMATION</p>
+                <h1>About the <span>Project.</span></h1>
+                <p>
+                    Understanding the purpose, methodology and
+                    technology behind ComplaintIQ.
+                </p>
+            </div>
+
+            <section class="about-hero">
+
+                <div class="about-hero-content">
+                    <p class="eyebrow">NLP & MACHINE LEARNING</p>
+
+                    <h2>
+                        Making consumer complaints easier to understand.
+                    </h2>
+
+                    <p>
+                        ComplaintIQ is a text classification system that
+                        analyzes consumer financial complaint narratives
+                        and predicts the associated financial product category.
+                    </p>
+                </div>
+
+                <div class="about-hero-icon">
+                    <i data-lucide="landmark"></i>
+                </div>
+
+            </section>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Project Objective</h2>
+                    <p>What this application is designed to achieve</p>
+                </div>
+            </div>
+
+            <article class="content-card">
+
+                <p class="about-paragraph">
+                    The project aims to automate the categorization of
+                    consumer financial complaints using Natural Language
+                    Processing and supervised machine learning.
+                    Instead of manually reviewing every complaint,
+                    the system processes the complaint narrative and
+                    predicts its relevant financial product category.
+                </p>
+
+            </article>
+
+            <div class="section-heading about-section-heading">
+                <div>
+                    <h2>Dataset Overview</h2>
+                    <p>Consumer Financial Protection Bureau complaint data</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+                    <span class="stat-label">Original Records</span>
+                    <h2>3.09M</h2>
+                    <p class="stat-description">Collected dataset</p>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-label">Cleaned Records</span>
+                    <h2>970,109</h2>
+                    <p class="stat-description">Final cleaned dataset</p>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-label">Product Categories</span>
+                    <h2>18</h2>
+                    <p class="stat-description">Classification labels</p>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-label">Input Feature</span>
+                    <h2 class="feature-heading">Complaint Narrative</h2>
+                    <p class="stat-description">Text-based input</p>
+                </article>
+
+            </div>
+
+            <div class="section-heading about-section-heading">
+                <div>
+                    <h2>Technical Methodology</h2>
+                    <p>Stages involved in building the classifier</p>
+                </div>
+            </div>
+
+            <div class="methodology-grid">
+
+                <article class="content-card method-card">
+                    <div class="method-icon">
+                        <i data-lucide="database"></i>
+                    </div>
+                    <h3>Data Collection & EDA</h3>
+                    <p>
+                        Dataset exploration, missing value analysis,
+                        duplicate analysis and class distribution.
+                    </p>
+                </article>
+
+                <article class="content-card method-card">
+                    <div class="method-icon">
+                        <i data-lucide="text"></i>
+                    </div>
+                    <h3>Text Preprocessing</h3>
+                    <p>
+                        Text cleaning, normalization, stopword removal
+                        and lemmatization.
+                    </p>
+                </article>
+
+                <article class="content-card method-card">
+                    <div class="method-icon">
+                        <i data-lucide="binary"></i>
+                    </div>
+                    <h3>Feature Extraction</h3>
+                    <p>
+                        TF-IDF vectorization to convert complaint text
+                        into numerical features.
+                    </p>
+                </article>
+
+                <article class="content-card method-card">
+                    <div class="method-icon">
+                        <i data-lucide="brain-circuit"></i>
+                    </div>
+                    <h3>Model Training</h3>
+                    <p>
+                        Machine learning experiments, class balancing
+                        and hyperparameter tuning.
+                    </p>
+                </article>
+
+                <article class="content-card method-card">
+                    <div class="method-icon">
+                        <i data-lucide="chart-no-axes-combined"></i>
+                    </div>
+                    <h3>Model Evaluation</h3>
+                    <p>
+                        Evaluation using accuracy, precision, recall
+                        and F1-score.
+                    </p>
+                </article>
+
+                <article class="content-card method-card">
+                    <div class="method-icon">
+                        <i data-lucide="monitor"></i>
+                    </div>
+                    <h3>Application Development</h3>
+                    <p>
+                        Flask-based application for interactive
+                        complaint classification.
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="section-heading about-section-heading">
+                <div>
+                    <h2>Technology Stack</h2>
+                    <p>Tools and libraries used in this project</p>
+                </div>
+            </div>
+
+            <article class="content-card technology-card">
+                <div class="technology-list">
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>NLTK</span>
+                    <span>Scikit-learn</span>
+                    <span>TF-IDF</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+            </article>
+
+            <section class="about-footer">
+                <h2>
+                    Turning unstructured text into meaningful categories.
+                </h2>
+
+                <p>
+                    Consumer Complaint Classification System ·
+                    NLP & Machine Learning
+                </p>
+            </section>
+
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

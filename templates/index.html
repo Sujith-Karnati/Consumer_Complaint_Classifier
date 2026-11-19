@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComplaintIQ | Consumer Complaint Classification</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i data-lucide="landmark"></i>
+            </div>
+            <div class="brand-text">
+                <h2>ComplaintIQ</h2>
+                <span>Consumer Insights</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="navigation">
+                <a href="/" class="nav-link active">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/classify" class="nav-link">
+                    <i data-lucide="file-search"></i>
+                    <span>Classify Complaint</span>
+                </a>
+
+                <a href="/performance" class="nav-link">
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Model Performance</span>
+                </a>
+
+                <a href="/about" class="nav-link">
+                    <i data-lucide="info"></i>
+                    <span>About Project</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-note">
+                <div class="note-icon">
+                    <i data-lucide="brain"></i>
+                </div>
+                <h4>Powered by NLP</h4>
+                <p>
+                    Intelligent complaint classification
+                    using natural language processing.
+                </p>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                <span>Classification system ready</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <i data-lucide="chevron-right"></i>
+                <strong>Dashboard</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="theme-toggle" id="themeToggle"
+                        type="button" aria-label="Switch theme" title="Switch theme">
+                    <i data-lucide="moon"></i>
+                    <span>Dark mode</span>
+                </button>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">CI</div>
+                    <div class="profile-info">
+                        <strong>ComplaintIQ</strong>
+                        <span>ML Classification</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="dashboard-content">
+
+            <div class="welcome-section">
+                <div>
+                    <p class="eyebrow">OVERVIEW</p>
+                    <h1>Consumer Complaint <span>Insights.</span></h1>
+
+                    <p class="welcome-description">
+                        Understand, analyze and classify consumer financial
+                        complaints with intelligent text classification.
+                    </p>
+                </div>
+
+                <a href="/classify" class="primary-button">
+                    <i data-lucide="plus"></i>
+                    Analyze Complaint
+                </a>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Project Overview</h2>
+                    <p>A snapshot of your classification system</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Processed Dataset</span>
+                        <div class="stat-icon teal-icon">
+                            <i data-lucide="database"></i>
+                        </div>
+                    </div>
+
+                    <h2>970,109</h2>
+
+                    <p class="stat-description">
+                        <span class="stat-indicator"></span>
+                        Cleaned complaint records
+                    </p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Product Categories</span>
+                        <div class="stat-icon cream-icon">
+                            <i data-lucide="layers"></i>
+                        </div>
+                    </div>
+
+                    <h2>18</h2>
+
+                    <p class="stat-description">
+                        Financial product classes
+                    </p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Model Accuracy</span>
+                        <div class="stat-icon green-icon">
+                            <i data-lucide="target"></i>
+                        </div>
+                    </div>
+
+                    <h2>82.95<span class="percentage">%</span></h2>
+
+                    <p class="stat-description">
+                        Balanced Linear SVC
+                    </p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Macro F1-Score</span>
+                        <div class="stat-icon dark-icon">
+                            <i data-lucide="chart-no-axes-combined"></i>
+                        </div>
+                    </div>
+
+                    <h2>44.37<span class="percentage">%</span></h2>
+
+                    <p class="stat-description">
+                        Performance across 18 classes
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="dashboard-grid">
+
+                <article class="content-card project-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">INTRODUCTION</p>
+                            <h2>About the Project</h2>
+                        </div>
+
+                        <div class="heading-icon">
+                            <i data-lucide="file-text"></i>
+                        </div>
+                    </div>
+
+                    <p class="project-description">
+                        A machine learning-based system designed to
+                        automatically categorize consumer financial
+                        complaints into relevant product categories
+                        using Natural Language Processing.
+                    </p>
+
+                    <div class="project-divider"></div>
+
+                    <div class="project-details">
+                        <div>
+                            <span>Dataset</span>
+                            <strong>CFPB Consumer Complaints</strong>
+                        </div>
+
+                        <div>
+                            <span>Feature Extraction</span>
+                            <strong>TF-IDF Unigram</strong>
+                        </div>
+
+                        <div>
+                            <span>Classification Algorithm</span>
+                            <strong>Balanced Linear SVC</strong>
+                        </div>
+                    </div>
+
+                    <a href="/about" class="text-link">
+                        Explore project
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </article>
+
+                <article class="content-card model-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">MACHINE LEARNING</p>
+                            <h2>Model Information</h2>
+                        </div>
+
+                        <div class="model-badge">Active</div>
+                    </div>
+
+                    <div class="model-visual">
+                        <div class="model-visual-icon">
+                            <i data-lucide="brain-circuit"></i>
+                        </div>
+
+                        <div>
+                            <h3>Linear Support Vector Classifier</h3>
+                            <p>Supervised learning algorithm</p>
+                        </div>
+                    </div>
+
+                    <div class="model-info-list">
+                        <div>
+                            <span>Vectorization</span>
+                            <strong>TF-IDF</strong>
+                        </div>
+
+                        <div>
+                            <span>Feature Type</span>
+                            <strong>Unigram</strong>
+                        </div>
+
+                        <div>
+                            <span>Classification</span>
+                            <strong>18 Categories</strong>
+                        </div>
+                    </div>
+
+                    <a href="/performance" class="text-link">
+                        View model performance
+                        <i data-lucide="arrow-up-right"></i>
+                    </a>
+
+                </article>
+
+            </div>
+
+            <section class="content-card workflow-card">
+
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">HOW IT WORKS</p>
+                        <h2>Classification Workflow</h2>
+                        <p class="workflow-subtitle">
+                            From raw complaint text to predicted product category.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="workflow-steps">
+
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i data-lucide="file-input"></i>
+                        </div>
+                        <h4>Input Text</h4>
+                        <p>Consumer complaint</p>
+                    </div>
+
+                    <div class="workflow-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i data-lucide="filter"></i>
+                        </div>
+                        <h4>Preprocessing</h4>
+                        <p>Text cleaning</p>
+                    </div>
+
+                    <div class="workflow-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i data-lucide="binary"></i>
+                        </div>
+                        <h4>TF-IDF</h4>
+                        <p>Feature extraction</p>
+                    </div>
+
+                    <div class="workflow-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <div class="workflow-step">
+                        <div class="workflow-icon">
+                            <i data-lucide="brain-circuit"></i>
+                        </div>
+                        <h4>Linear SVC</h4>
+                        <p>Model prediction</p>
+                    </div>
+
+                    <div class="workflow-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <div class="workflow-step final-step">
+                        <div class="workflow-icon">
+                            <i data-lucide="badge-check"></i>
+                        </div>
+                        <h4>Classification</h4>
+                        <p>Predicted category</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="quick-action">
+                <div class="quick-action-content">
+                    <p class="eyebrow">GET STARTED</p>
+
+                    <h2>Ready to classify a complaint?</h2>
+
+                    <p>
+                        Enter a consumer complaint and let the
+                        classification model identify its product category.
+                    </p>
+
+                    <a href="/classify" class="quick-action-button">
+                        Start Classification
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="quick-action-art">
+                    <i data-lucide="message-square-text"></i>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>Consumer Complaint Classification System</p>
+                <p>Powered by NLP & Machine Learning</p>
+            </footer>
+
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

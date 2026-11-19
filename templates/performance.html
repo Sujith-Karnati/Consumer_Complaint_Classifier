@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Performance | ComplaintIQ</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i data-lucide="landmark"></i>
+            </div>
+
+            <div class="brand-text">
+                <h2>ComplaintIQ</h2>
+                <span>Consumer Insights</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="navigation">
+                <a href="/" class="nav-link">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/classify" class="nav-link">
+                    <i data-lucide="file-search"></i>
+                    <span>Classify Complaint</span>
+                </a>
+
+                <a href="/performance" class="nav-link active">
+                    <i data-lucide="chart-no-axes-combined"></i>
+                    <span>Model Performance</span>
+                </a>
+
+                <a href="/about" class="nav-link">
+                    <i data-lucide="info"></i>
+                    <span>About Project</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-note">
+                <div class="note-icon">
+                    <i data-lucide="brain"></i>
+                </div>
+
+                <h4>Powered by NLP</h4>
+                <p>
+                    Intelligent complaint classification using
+                    natural language processing.
+                </p>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                <span>Classification system ready</span>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle"
+                    type="button" aria-label="Toggle navigation">
+                <i data-lucide="menu"></i>
+            </button>
+
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <i data-lucide="chevron-right"></i>
+                <strong>Model Performance</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="theme-toggle" id="themeToggle"
+                        type="button" aria-label="Switch theme" title="Switch theme">
+                    <i data-lucide="moon"></i>
+                    <span>Dark mode</span>
+                </button>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Online
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">CI</div>
+                    <div class="profile-info">
+                        <strong>ComplaintIQ</strong>
+                        <span>ML Classification</span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <section class="dashboard-content">
+
+            <div class="page-intro">
+                <p class="eyebrow">MODEL EVALUATION</p>
+                <h1>Model <span>Performance.</span></h1>
+                <p>
+                    Evaluation metrics of the selected Balanced
+                    Linear SVC classifier.
+                </p>
+            </div>
+
+            <section class="performance-highlight">
+                <div>
+                    <p class="eyebrow">SELECTED MODEL</p>
+                    <h2>Balanced Linear SVC</h2>
+                    <p>TF-IDF Unigram feature representation</p>
+                </div>
+
+                <div class="model-status-label">
+                    <span class="status-dot"></span>
+                    Final selected model
+                </div>
+            </section>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Evaluation Metrics</h2>
+                    <p>Results from your final model evaluation</p>
+                </div>
+            </div>
+
+            <div class="stats-grid performance-stats">
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Accuracy</span>
+                        <div class="stat-icon teal-icon">
+                            <i data-lucide="target"></i>
+                        </div>
+                    </div>
+
+                    <h2>82.95%</h2>
+                    <p class="stat-description">
+                        Overall correct predictions
+                    </p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Macro Precision</span>
+                        <div class="stat-icon cream-icon">
+                            <i data-lucide="crosshair"></i>
+                        </div>
+                    </div>
+
+                    <h2>48.51%</h2>
+                    <p class="stat-description">
+                        Average precision across classes
+                    </p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Macro Recall</span>
+                        <div class="stat-icon green-icon">
+                            <i data-lucide="scan-eye"></i>
+                        </div>
+                    </div>
+
+                    <h2>45.82%</h2>
+                    <p class="stat-description">
+                        Average recall across classes
+                    </p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Macro F1-Score</span>
+                        <div class="stat-icon dark-icon">
+                            <i data-lucide="chart-no-axes-combined"></i>
+                        </div>
+                    </div>
+
+                    <h2>44.37%</h2>
+                    <p class="stat-description">
+                        Balanced class-wise F1 measure
+                    </p>
+                </article>
+
+            </div>
+
+            <div class="dashboard-grid">
+
+                <article class="content-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">WEIGHTED EVALUATION</p>
+                            <h2>Weighted F1-Score</h2>
+                        </div>
+
+                        <div class="heading-icon">
+                            <i data-lucide="chart-pie"></i>
+                        </div>
+                    </div>
+
+                    <div class="weighted-score">
+                        <h2>83.43<span>%</span></h2>
+
+                        <div class="score-track">
+                            <div class="score-fill" style="width:83.43%"></div>
+                        </div>
+
+                        <p>
+                            Weighted average F1-score across all
+                            product categories.
+                        </p>
+                    </div>
+
+                </article>
+
+                <article class="content-card">
+
+                    <div class="card-heading">
+                        <div>
+                            <p class="eyebrow">MODEL CONFIGURATION</p>
+                            <h2>Training Details</h2>
+                        </div>
+
+                        <div class="heading-icon">
+                            <i data-lucide="settings-2"></i>
+                        </div>
+                    </div>
+
+                    <div class="project-details model-details">
+
+                        <div>
+                            <span>Algorithm</span>
+                            <strong>Linear SVC</strong>
+                        </div>
+
+                        <div>
+                            <span>Class balancing</span>
+                            <strong>Balanced weights</strong>
+                        </div>
+
+                        <div>
+                            <span>Feature extraction</span>
+                            <strong>TF-IDF Unigram</strong>
+                        </div>
+
+                        <div>
+                            <span>Number of classes</span>
+                            <strong>18</strong>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <article class="content-card evaluation-note">
+
+                <div class="heading-icon">
+                    <i data-lucide="info"></i>
+                </div>
+
+                <div>
+                    <h3>Understanding the results</h3>
+
+                    <p>
+                        The difference between accuracy and Macro F1 indicates
+                        that model performance varies across product categories.
+                        Macro F1 gives equal importance to each category, making
+                        it especially useful for evaluating an imbalanced dataset.
+                    </p>
+                </div>
+
+            </article>
+
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
