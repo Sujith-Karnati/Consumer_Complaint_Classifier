@@ -55,8 +55,7 @@ The dataset contains consumer complaints related to various financial products a
 
 The project focuses on two primary columns:
 
-- `Consumer complaint narrative` – Text describing the consumer's complaint.
-- `Product` – Category associated with the complaint.
+- `Consumer complaint narrative` – Text describing the consumer's complaint 
 
 ## Project Workflow
 
